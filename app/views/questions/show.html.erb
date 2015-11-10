@@ -1,0 +1,66 @@
+  <%if user_signed_in?%>
+    <div class="container">
+    <div class="lead well">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img src="<%= @question.gravatar %>" alt="" class="media-object">
+            </a>
+        </div>
+        
+        <div class="media-body">
+          <span class="label label-danger count"><h5>Answers: <%=@count%></h5></span> 
+          <h4 class="media-heading"><%= @question.email%>  </h4>
+         <h3>Asked:</h3>
+        </div>
+      </div>
+       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <%=@question.body%>  
+        </a>        
+      </h4>
+    </div>
+    
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+          <!--media object-->
+          <% @answers.each do|answer|%>
+            <div class="media">
+              <div class="media-left media-middle">
+                <a href="#">
+                 <img src="<%=answer.gravatar %>" alt="" class="media-object">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= answer.email%> Answered:</h4>
+                <h5><%= time_ago_in_words answer.created_at %> ago</h5> 
+                <h3><%=answer.body%></h3>
+              </div>
+            </div>
+            <%end%>
+            <% if @answers.empty?%>
+              <div class="alert alert-info">Nothing yet here,be the first to answer this question</div>
+            <%end%>
+          <!--media object-->
+          <div>
+              <form><a href="#" class="btn btn-success navbar-btn btn-sm" data-toggle="modal" data-target="#new-answer-modal">New answer</a></form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div >
+  <%= render 'home/new_answer_form'%>
+
+</div>
+    </div>
+   
+  </div>
+  
+  <%else%>
+  <h5>Please login</h5>
+  <%end%>
+  

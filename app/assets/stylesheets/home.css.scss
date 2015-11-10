@@ -1,0 +1,94 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	background-color: #ffffff;
+}
+
+.nav{
+	background-color: #437D47;
+}
+.askonebtn{
+	color: #68CB6D;
+	font-family: courier;
+	font-style: oblique;
+	
+}
+
+
+
+.time-ago{
+	color:#4268D7;
+	margin-bottom: 10px;
+}
+ 
+ 
+.media-body h4{
+color:#070808;
+}
+
+.input-group input{
+	margin-right: 5px;
+}
+
+.title{
+	font-family: courier;
+	color: #68CB6D;
+
+
+}
+
+.email{
+	
+	color:#A12C2C;
+	/*font-family: courier;*/
+
+}
+
+.asked{
+		font-family: courier;
+
+}
+.body-color{
+	color: #070808;
+	
+}
+
+.border{
+	padding-bottom: 10px;
+	border-bottom: 5px solid #A12C2C;
+
+}
+
+.align{
+	text-align: center;
+}
+
+.align-search{
+	float: left;
+}
+
+.dropdown-margin{
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.btn-login-join{
+	margin: 10px;
+}
+
+.center{
+	text-align: center;
+}
+
+.margin-btn{
+	margin:10px 10px 0px 0px;
+}
+
+.margin-container{
+	margin-top: 30px;
+}
