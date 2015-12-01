@@ -1,28 +1,24 @@
-<div class="modal fade" id="question-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">New question</h4>
-      </div>
-      <%= form_for :question, url: '/questions' do %>
-      <div class="modal-body">
-       
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">Email:</label>
-            <input type="text"name="question[email]" value="<%= current_user_email %>" class="form-control" id="recipient-name">
+  <div class="modal fade" id="question-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="exampleModalLabel">New question</h4>
+        </div>
+        <%= form_for :question, url: '/questions' do |f| %>
+          <div class="modal-body">
+              <div class="form-group">
+                <%= f.label :email, class: "control-label" %>
+                <%= f.text_field :email, class: "form-control"%>
+              </div>
+              <div class="form-group">
+                <%= f.label :body, class: "label-control"%>
+                <%= f.text_area :body, class: "form-control" %>
+              </div>       
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= f.submit "Submit", class: "btn btn-primary"%>
           </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Question:</label>
-            <textarea class="form-control" id="message-text" name="question[body]"></textarea>
-          </div>
-       
+        <%end%>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">AskOne</button>
-      </div>
-      <%end%>
     </div>
   </div>
-</div>

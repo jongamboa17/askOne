@@ -1,28 +1,28 @@
 
-<div class="modal fade" id="new-answer-modal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">New Answer</h4>
-      </div>
-      <%= form_for  :answer, url: '/answers', html:{} do  %>
-      <input type="hidden" name="answer[question_id]"  value="<%= @question.id%>">
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" name="answer[email]" value="<%= current_user.email%>" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required>
+  <div class="modal fade" id="new-answer-modal" tabindex="-1"role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">New Answer</h4>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Answer</label>
-          <textarea class="form-control" name="answer[body]" id="inputQuestion" placeholder="New answer" required></textarea>
-        </div>   
+         
+        <%= form_for :answer , url: '/answers' do |f| %>
+          <input type="hidden" name="answer[question_id]"  value="<%= @question.id%>">
+          <div class="modal-body">
+            <div class="form-group">
+              <%= f.label :email, class: "control-label" %>
+              <%= f.text_field :email, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :body, class: "control-label" %>
+              <%= f.text_area :body, class: "form-control" %>
+            </div>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= f.submit "Submit",  class: "btn btn-primary" %>
+          
+         </div>
+      <% end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>      
-      <%end%> 
     </div>
   </div>
-</div>
